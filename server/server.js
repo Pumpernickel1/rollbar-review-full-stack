@@ -19,12 +19,13 @@ var rollbar = new Rollbar({
 rollbar.log('Hello world!')
 
 // Serving files using middleware (express.static)
-app.use('/', express.static(path.join(__dirname, '../public')));
+// app.use('/', express.static(path.join(__dirname, '../public')));
 
 // Serving files using endpoints (app.get())
-// app.get('/', function(req, res) {
-//     res.sendFile(path.join(__dirname, '../public/index.html'));
-// });
+app.get('/', function(req, res) {
+    rollbar.info("We finally did it")
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 const port = process.env.PORT || 4005;
 
