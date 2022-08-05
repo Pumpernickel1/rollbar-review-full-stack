@@ -8,7 +8,7 @@ function postThing() {
         text: input.value
     };
 
-    axios.post('http://localhost:4005/yo', thing)
+    axios.post('/yo', thing)
         .then((res) => {
             alert(res.data);
         })
