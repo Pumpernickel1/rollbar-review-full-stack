@@ -29,6 +29,13 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
+// app.use(express.static(path.join(__dirname, '../public')));  // I think this is just a repeat of above (line 22)?
+
+app.get('/js', (req, res) => {
+    rollbar.info('Served JS');
+    res.sendFile(path.join(__dirname, '../public/main.js'));
+});
+
 app.post('/yo', (req, res) => {
     rollbar.info(`We have received ${req.body.text}`);
     res.sendStatus(200);
